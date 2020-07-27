@@ -1,0 +1,36 @@
+{
+  "name": "mailer",
+  "version": "1.0.0",
+  "description": "Mailing Service for DevClub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests for now 😙\" && exit 0",
+    "eslint-test": "eslint './**/*.js'",
+    "eslint-fix": "eslint --fix './**/*.js'",
+    "prettier-test": "prettier --check './**/*.js'",
+    "prettier-fix": "prettier --write './**/*.js'",
+    "lint-tests": "rimraf dist/;npm run eslint-test;npm run prettier-test",
+    "lint-fixes": "rimraf dist/;npm run eslint-fix;npm run prettier-fix",
+    "build": "rimraf dist/ && babel ./src --out-dir dist/ --copy-files",
+    "start": "npm run build && node dist/index.js",
+    "clean": "rimraf dist/",
+    "devStart": "nodemon --ignore dist/ -e coffee,js,ejs,css --exec npm start"
+  },
+  "author": "Harsh Agrawal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.10",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "eslint": "^7.5.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.20.3",
+    "nodemon": "^2.0.4"
+  }
+}
